@@ -1,0 +1,9 @@
+.project
+.classpath
+.gradle
+.settings
+bin
+build
+jackrabbit
+target
+*.log

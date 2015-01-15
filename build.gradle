@@ -1,0 +1,40 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url "http://repo.spring.io/snapshot" }
+        maven { url "http://repo.spring.io/milestone" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.2.BUILD-SNAPSHOT")
+    }
+}
+
+apply plugin: 'eclipse'
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'spring-boot'
+
+jar {
+    baseName = 'myproject'
+    version =  '0.0.1-SNAPSHOT'
+}
+
+repositories {
+    jcenter()
+    maven { url "http://repo.spring.io/snapshot" }
+    maven { url "http://repo.spring.io/milestone" }
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-freemarker")
+    compile("javax.jcr:jcr:2.0")
+    compile("org.apache.jackrabbit:jackrabbit-core:2.9.0")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+
+task wrapper(type: Wrapper) {
+	description = "Generates gradlew[.bat] scripts"
+	gradleVersion = "2.2.1"
+}
+
