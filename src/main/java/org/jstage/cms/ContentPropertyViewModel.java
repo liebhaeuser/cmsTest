@@ -1,9 +1,9 @@
 package org.jstage.cms;
 
 public class ContentPropertyViewModel {
-	
+
 	private String name;
-	
+
 	private String value;
 
 	public String getName() {
@@ -20,6 +20,11 @@ public class ContentPropertyViewModel {
 
 	public void setValue(String value) {
 		this.value = value;
+	}
+
+	@Override
+	public String toString() {
+		return value;
 	}
 
 }

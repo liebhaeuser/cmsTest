@@ -1,6 +1,7 @@
 package org.jstage.cms;
 
 import java.util.Collection;
+import java.util.Map;
 
 public class ContentViewModel {
 
@@ -10,7 +11,9 @@ public class ContentViewModel {
 
 	private String path;
 
-	private Collection<ContentPropertyViewModel> properties;
+	private String name;
+
+	private Map<String, ContentPropertyViewModel> properties;
 
 	public ContentViewModel getParent() {
 		return parent;
@@ -36,11 +39,19 @@ public class ContentViewModel {
 		this.path = path;
 	}
 
-	public Collection<ContentPropertyViewModel> getProperties() {
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Map<String, ContentPropertyViewModel> getProperties() {
 		return properties;
 	}
 
-	public void setProperties(Collection<ContentPropertyViewModel> properties) {
+	public void setProperties(Map<String, ContentPropertyViewModel> properties) {
 		this.properties = properties;
 	}
 

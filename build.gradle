@@ -30,6 +30,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-freemarker")
     compile("javax.jcr:jcr:2.0")
     compile("org.apache.jackrabbit:jackrabbit-core:2.9.0")
+    compile("org.apache.jackrabbit:jackrabbit-jcr-rmi:2.9.0")
     testCompile("org.springframework.boot:spring-boot-starter-test")
 }
 

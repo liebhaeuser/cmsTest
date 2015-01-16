@@ -31,18 +31,16 @@ public class SampleController {
 		return "welcome";
 	}
 	
-	@RequestMapping("/test")
-	public String test(Map<String, Object> model) throws RepositoryException {
-		StringBuffer strBuffer = new StringBuffer();
-		strBuffer.append(createContent());
-		strBuffer.append("<br>");
-		model.put("contentViewModel", contentService.retrieveContent());
-		//strBuffer.append(removeContent());
-		model.put("message", strBuffer.toString());
-		return "test";
+	@RequestMapping("/createNodeType")
+	@ResponseBody
+	public String createNodeType() throws RepositoryException {
+		contentService.createBlogNodeType();
+		return ("creation successfull");
 	}
-
-	private String createContent() {
+	
+	@RequestMapping("/createContent")
+	@ResponseBody
+	public String createContent() throws RepositoryException {
 		try {
 			contentService.createContent();
 		} catch (RepositoryException e) {
@@ -51,6 +49,19 @@ public class SampleController {
 		}
 
 		return "Content Created!";
+	}
+	
+	@RequestMapping("/test")
+	public String test(Map<String, Object> model) throws RepositoryException {
+		StringBuffer strBuffer = new StringBuffer();
+		//strBuffer.append(createContent());
+		strBuffer.append("<br>");
+		ContentViewModels contentViewModels = new ContentViewModels();
+		contentViewModels.setContentService(contentService);
+		model.put("contentViewModels", contentViewModels);
+		//strBuffer.append(removeContent());
+		model.put("message", strBuffer.toString());
+		return "test";
 	}
 	
 	private String removeContent() {
